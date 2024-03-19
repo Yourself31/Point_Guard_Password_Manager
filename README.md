@@ -1,2 +1,4 @@
-# Point_Guard_Password_Manager
-CY383 Project
+# Point Guard: Password Manager
+
+Four and a half million people use the password "123456" according to a recent study by NordPass. (Jacob, “Most Overused Passwords in the World — Make Sure Yours Isn’t on the List.”) By far this was the most common password with variants like "12345678" and "123456789" crowding the top ten most common passwords of 2023. Passwords are hard to remember, and users will often use the same one for multiple accounts (https://www.bitdefender.com/blog/
+hotforsecurity/majority-of-people-reuse-the-same-password-on-multiple-accounts-research-finds/). Or, they will simplify the complexity requirement by adding a symbol at the end like "123456@". However, these weak passwords often lead to data breaches costing \$4.45 million on average (https://www.ibm.com/reports/data-breach). Or in other words, people want easy passwords but they cost millions of dollars to do so. How do we solve this and give both parties what they want? Password managers! They are a happy medium that melds security with convenience. PointGuard is a new and innovative password manager that saves 4 and half million users from easily guessable passwords, saving businesses millions of dollars. We are military-oriented with a specific goal set on zero-trust architecture. 
