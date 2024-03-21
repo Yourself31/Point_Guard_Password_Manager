@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Guard - Secure Password Manager</title>
+    <style>
+        /* Basic Reset */
+        body, h1, h2, h3, p, figure, nav, ul, li { margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; }
+
+        /* Color Scheme */
+        :root {
+            --color-dark-blue: #006D77;
+            --color-light-blue: #83C5BE;
+            --color-lightest-blue: #EDF6F9;
+            --color-light-orange: #FFDDD2;
+            --color-dark-orange: #E29578;
+        }
+
+        /* General Styles */
+        body {
+            background-color: var(--color-lightest-blue);
+            color: var(--color-dark-blue);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .button, .nav-link {
+            background-color: var(--color-dark-blue);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover, .nav-link:hover {
+            background-color: var(--color-light-blue);
+        }
+
+        nav {
+            background-color: var(--color-dark-blue);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nav-link {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#register" class="nav-link">Register</a>
+        <a href="#login" class="nav-link">Login</a>
+        <a href="#logout" class="nav-link">Logout</a>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Welcome to Point Guard</h1>
+        </header>
+        
+        <main>
+            <section id="home">
+                <h2>Home Screen</h2>
+                <button class="button" id="generatePassword">Generate Password</button>
+                <button class="button" id="accessPassword">Access Password</button>
+                <button class="button" id="crackMe">Crack Me!</button>
+            </section>
+            <!-- Placeholder for other sections: Register, Login, etc. -->
+        </main>
+    </div>
+
+    <script>
+        // Placeholder for JavaScript interactions (button clicks, navigation, AJAX calls, etc.)
+    </script>
+</body>
+</html>
