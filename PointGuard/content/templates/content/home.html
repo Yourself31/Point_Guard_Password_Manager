@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="hero text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Welcome to Point Guard: Your Secure Password Manager!</h1>
+        <p class="lead">Your passwords secured effortlessly.</p>
+    </div>
+</section>
+
+<section class="features mt-5">
+    <div class="container">
+        <h2 class="mb-4 text-center">Features</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Generate Password</h5>
+                        <p class="card-text">Create strong, unique passwords with one click.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Access Password</h5>
+                        <p class="card-text">Easily retrieve your passwords across all devices.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Security Tips</h5>
+                        <p class="card-text">Learn best practices for maintaining password security.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Link to Bootstrap JavaScript (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<style>
+    body {
+        background-color: #EDF6F9; /* Lightest blue for a calming background */
+        color: #006D77; /* Dark blue text for contrast and readability */
+    }
+    
+    .navbar-custom {
+        background-color: #006D77; /* Primary dark blue for the navbar */
+        border-bottom: 3px solid #83C5BE; /* Light blue border for a pop of color */
+    }
+    
+    .nav-link {
+        color: #FFDDD2; /* Light orange for inviting navigation links */
+        font-weight: bold;
+    }
+    
+    .nav-link:hover {
+        color: #E29578; /* Dark orange on hover for visual feedback */
+    }
+    
+    .hero {
+        background-color: #83C5BE; /* Light blue for the welcome section for a refreshing start */
+        color: white; /* Ensures text stands out */
+    }
+    
+    .features .card {
+        border-left: 5px solid #E29578; /* Dark orange border on the left for a touch of style */
+        transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    }
+    
+    .features .card:hover {
+        transform: translateY(-10px); /* Slight lift effect on hover for interactivity */
+    }
+    
+    .footer-custom {
+        background-color: #006D77; /* Matching the navbar for consistency */
+        color: white; /* For readability */
+        padding: 20px 0; /* Adequate padding for comfort */
+    }
+    
+    .card {
+        background-color: whitesmoke;
+    }
+
+    /* Set font and alignment for the header and card titles. */
+    h2, .card-title {
+        font-weight: bold;
+        font-family: Arial, sans-serif; /* Adjusting for better readability */
+        text-align: center;
+    }
+
+    .card-text {
+        text-align: justify; /* Improving readability of the card text */
+    }
+</style>
+{% endblock %}
