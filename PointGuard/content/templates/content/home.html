@@ -7,9 +7,24 @@
         <p class="lead">Your passwords secured effortlessly.</p>
     </div>
 </section>
-
+{% if user.is_authenticated %}
 <section class="features mt-5">
     <div class="container">
+        <h2 class="mb-4 text-center">Your Passwords</h2>
+        <div class="row">
+            {% for password in user_passwords %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ password.website }}</h3>
+                        <p class="card-text">Username: {{ password.username }}</p>
+                        <p class="card-text">Last Updated: {{ password.updated_at|date:"F d, Y" }}</p>
+                        <!-- Reminder: Never display actual passwords in plaintext! -->
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
         <h2 class="mb-4 text-center">Features</h2>
         <div class="row">
             <div class="col-md-4 mb-4">
@@ -39,6 +54,16 @@
         </div>
     </div>
 </section>
+{% else %}
+<section class="features mt-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Features at a Glance</h2>
+        <p>Generate secure passwords, manage your credentials seamlessly across devices, and more...</p>
+        <p>Sign up today to take control of your password security.</p>
+    </div>
+</section>
+{% endif %}
+
 
 <!-- Link to Bootstrap JavaScript (optional) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -81,6 +106,12 @@
         background-color: #006D77; /* Matching the navbar for consistency */
         color: white; /* For readability */
         padding: 20px 0; /* Adequate padding for comfort */
+    }
+
+    .card-body {
+        background-color: black; /* Background color with opacity */
+        text-align: center;
+        color: white;
     }
     
     .card {
