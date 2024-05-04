@@ -9,26 +9,15 @@ from .forms import UserPasswordForm, PasswordCategoryForm
 #     # Render the page with the information about the password categories
 #     return render(request, 'content/home.html', {'password_categories': password_categories})
 
+def welcome(request):
+    return render(request, 'content/welcome.html')
+
 def home(request):
     if request.user.is_authenticated:
         user_passwords = UserPassword.objects.filter(user=request.user).order_by('-created_at')
         return render(request, 'content/home.html', {'user_passwords': user_passwords})
     else:
         return render(request, 'content/home.html', {'message': 'Please log in to view passwords.'})
-    
-    
-def add_password_category(request):
-    if request.method == 'POST':
-        form = PasswordCategoryForm(request.POST)
-        if form.is_valid():
-            new_category = form.save(commit=False)
-            new_category.user = request.user  # Assuming categories are user-specific
-            new_category.save()
-            return redirect('content/home.html')  # Redirect to a relevant page
-    else:
-        form = PasswordCategoryForm()
-
-    return render(request, 'content/add_password_category.html', {'form': form})
 
 def add_password(request):
     # Upon submission, retrieve and save the form data if it is valid. Then redirect to the home page.
@@ -44,3 +33,28 @@ def add_password(request):
     else:
         form = UserPasswordForm()
     return render(request, 'content/add_password.html', {'form': form})
+
+def add_password_category(request):
+    if request.method == 'POST':
+        form = PasswordCategoryForm(request.POST)
+        if form.is_valid():
+            new_category = form.save(commit=False)
+            new_category.user = request.user  # Assuming categories are user-specific
+            new_category.save()
+            return redirect('content/home.html')  # Redirect to a relevant page
+    else:
+        form = PasswordCategoryForm()
+
+    return render(request, 'content/add_password_category.html', {'form': form})
+
+def access_passwords(request):
+    # Retrieve all passwords associated with the current user
+    user_passwords = UserPassword.objects.filter(user=request.user)
+    return render(request, 'content/access_passwords.html', {'user_passwords': user_passwords})
+
+def generate_password(request):
+    # Implement your password generation logic here
+    return render(request, 'content/generate_password.html')
+
+def security_tips(request):
+    return render(request, 'content/security_tips.html')

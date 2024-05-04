@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point Guard</title>
+    <style>
+        @keyframes colorChange {
+            0% { background-color: #006D77; } /* Dark blue */
+            25% { background-color: #83C5BE; } /* Lighter blue */
+            50% { background-color: #EDF6F9; } /* Lightest blue */
+            75% { background-color: #E29578; } /* Light orange */
+            100% { background-color: #006D77; } /* Back to Dark blue */
+        }
+        body {
+            animation: colorChange 10s infinite;
+            font-family: 'Arial', sans-serif; /* Using Arial font for simplicity */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px; /* Padding around the content to avoid touching the edges */
+            box-sizing: border-box; /* Includes padding in height and width */
+        }
+        .container {
+            text-align: left; /* Left aligning the text */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* White semi-transparent background for the text box */
+            border-radius: 10px; /* Rounded corners for the text box */
+            width: 100%; /* Full width within the padding of the body */
+            max-width: 600px; /* Maximum width for better aesthetics */
+        }
+        h1 {
+            font-size: 3.5rem; /* Slightly larger font size for the main title */
+            color: #005f69; /* Darker shade of the primary color */
+        }
+        p {
+            font-size: 1.75rem; /* Larger font size for the subtitle */
+            color: #006D77; /* Maintaining consistency in text color */
+            margin-bottom: 20px; /* Additional spacing below the paragraph */
+        }
+        a {
+            display: inline-block;
+            font-size: 1.2rem; /* Font size for the link */
+            color: #006D77; /* Dark blue color for the link */
+            padding: 10px 20px;
+            border: 2px solid #FFFFFF; /* White border for contrast */
+            border-radius: 5px; /* Rounded corners for the border */
+            background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent black background */
+            text-decoration: none; /* Removes underline from the link */
+        }
+        a:hover {
+            background-color: rgba(255, 255, 255, 0.3); /* Light background on hover */
+            color: #006D77; /* Dark blue text on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PointGuard</h1>
+        <p>Military grade encryption for civilian side safety</p>
+        <a href="{% url 'home' %}" role="button">Welcome</a>
+    </div>
+</body>
+</html>

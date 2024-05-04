@@ -18,3 +18,4 @@ class PasswordCategoryForm(forms.ModelForm):
         model = PasswordCategory
         fields = ['name']
         
+        
