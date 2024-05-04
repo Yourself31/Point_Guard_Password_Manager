@@ -12,3 +12,10 @@ class UserPasswordForm(forms.ModelForm):
             # Use password input for the password field (Note: This is for UI only, ensure backend encryption)
             'password': forms.PasswordInput(),
         }
+
+class PasswordCategoryForm(forms.ModelForm):
+    class Meta:
+        model = PasswordCategory
+        fields = ['name']
+        
+        
