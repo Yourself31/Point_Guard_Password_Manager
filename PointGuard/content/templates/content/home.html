@@ -7,24 +7,16 @@
         <p class="lead">Your passwords secured effortlessly.</p>
     </div>
 </section>
+
+<section class="mission text-center mt-5 py-5">
+    <div class="container">
+        <h2 class="mission-title">Mission Statement: Importance of Online Security</h2>
+        <p class="mission-text">Online security is paramount in today's digital age. With the increasing number of cyber threats, protecting senesitive information has become more crucial than ever. At PointGuard, we are committed to providing robust security solutions to safeguard your data and ensure peace of mind.</p>
+    </div>
+</section>
 {% if user.is_authenticated %}
 <section class="features mt-5">
     <div class="container">
-        <h2 class="mb-4 text-center">Your Passwords</h2>
-        <div class="row">
-            {% for password in user_passwords %}
-            <div class="col-md-4 mb-4">
-                <div class="card shadow h-100">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ password.website }}</h3>
-                        <p class="card-text">Username: {{ password.username }}</p>
-                        <p class="card-text">Last Updated: {{ password.updated_at|date:"F d, Y" }}</p>
-                        <!-- Reminder: Never display actual passwords in plaintext! -->
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
         <h2 class="mb-4 text-center">Features</h2>
         <div class="row">
             <div class="col-md-4 mb-4">
@@ -38,10 +30,10 @@
                 </a>
             </div>
             <div class="col-md-4 mb-4">
-                <a href="{% url 'access_passwords' %}">
+                <a href="{% url 'password_vault' %}">
                     <div class="card shadow h-100">
                         <div class="card-body">
-                            <h5 class="card-title">Access Password</h5>
+                            <h5 class="card-title">Password Vault</h5>
                             <p class="card-text">Easily retrieve your passwords across all devices.</p>
                         </div>
                     </div>
@@ -101,6 +93,7 @@
     body {
         background-color: #EDF6F9; /* Lightest blue for a calming background */
         color: #006D77; /* Dark blue text for contrast and readability */
+        font-family: 'Arial', sans-serif; /* Clean, modern font */
     }
     
     .navbar-custom {
@@ -117,10 +110,42 @@
         color: #E29578; /* Dark orange on hover for visual feedback */
     }
     
+    .hero, .mission {
+        background-color: #83C5BE; /* Light blue for a refreshing and consistent start */
+        color: white; /* Ensures text stands out */
+        padding: 40px 0; /* Ample padding for visual comfort */
+        border-radius: 8px; /* Soft rounded corners for modern aesthetics */
+        margin: 20px 0; /* Margin to separate sections nicely */
+    }
+    
+    .hero h1, .mission h2 {
+        color: #FFDDD2; /* Soft orange for headers to add contrast */
+        font-weight: bold;
+    }
+    
+    .lead, .mission-text {
+        font-size: 1.2rem; /* Slightly larger font size for readability */
+        line-height: 1.6; /* Improved line spacing for better readability */
+    }
+
+    .container {
+        max-width: 1000px; /* Keeping the container well-sized for focus */
+        margin: auto; /* Centering the container */
+    }
+
+    .mission-title {
+        font-size: 2rem; /* Larger font size for mission title */
+    }
+
+    .mission-text {
+        font-weight: normal; /* Regular weight for body text */
+        padding: 0 15px; /* Padding to prevent text from touching the edges */
+    }
+
     .hero {
         background-color: #83C5BE; /* Light blue for the welcome section for a refreshing start */
         color: white; /* Ensures text stands out */
-    }
+    } 
     
     .features .card {
         border-left: 5px solid #E29578; /* Dark orange border on the left for a touch of style */

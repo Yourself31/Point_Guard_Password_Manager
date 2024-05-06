@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse, JsonResponse
+from django.contrib.auth.decorators import login_required
 from .models import UserPassword, PasswordCategory  # Adjusted import to match the application's context
 from .forms import UserPasswordForm, PasswordCategoryForm
 
@@ -41,16 +43,38 @@ def add_password_category(request):
             new_category = form.save(commit=False)
             new_category.user = request.user  # Assuming categories are user-specific
             new_category.save()
-            return redirect('content/home.html')  # Redirect to a relevant page
+            return redirect('home')  # Redirect to a relevant page
     else:
         form = PasswordCategoryForm()
 
     return render(request, 'content/add_password_category.html', {'form': form})
 
-def access_passwords(request):
+def list_passwords(request):
     # Retrieve all passwords associated with the current user
-    user_passwords = UserPassword.objects.filter(user=request.user)
-    return render(request, 'content/access_passwords.html', {'user_passwords': user_passwords})
+    user_passwords = UserPassword.objects.filter(user=request.user).all()
+    return render(request, 'content/password_vault.html', {'user_passwords': user_passwords})
+
+def edit_password(request, password_id):
+    # Retrieve the password object to edit
+    user_password = UserPassword.objects.get(id=password_id)
+    # If the form is submitted, update the password object with the new data
+    if request.method == 'POST':
+        form = UserPasswordForm(request.POST, instance=user_password)
+        if form.is_valid():
+            form.save()
+            return redirect('password_vault')
+    # Otherwise, initialize the form with the current password data
+    else:
+        form = UserPasswordForm(instance=user_password)
+    return render(request, 'content/edit_password.html', {'form': form})
+
+def delete_password(request, password_id):
+    # Retrieve the password object based on the password_id
+    password = get_object_or_404(UserPassword, id=password_id)
+    # Perform deletion logic
+    password.delete()
+    
+    return JsonResponse({'status': 'success'})
 
 def generate_password(request):
     # Implement your password generation logic here
